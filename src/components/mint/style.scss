@@ -1,0 +1,197 @@
+h3 {
+  font-family: Montserrat, sans-serif;
+  font-weight: 600;
+  color: rgb(241, 241, 241);
+}
+.mint-wrapper {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Blender Pro', 'Helvetica', sans-serif;
+  padding: 32px;
+  background: rgb(11 11 8 / 80%);
+  border-radius: 10px;
+  margin-top: 30px;
+}
+.mint-header {
+  text-align: center;
+}
+.mint-header .title {
+  color: #fff;
+  font-weight: 700;
+  font-size: 22px;
+}
+.header_flex {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 30px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  width: 524px;
+  justify-content: space-between;
+}
+.detail-two-sides {
+  text-align: center;
+}
+.text-block-title {
+  color: #fff;
+  font-weight: 700;
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+.text-block {
+  color: #fff;
+  font-size: 19px;
+  font-weight: 400;
+}
+.mint-content {
+  width: 100%;
+}
+h2.sale-title {
+  opacity: 1;
+  color: rgb(252, 252, 253);
+  line-height: 51px;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 51px;
+  letter-spacing: 1px;
+}
+.mint-price-wrapper {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 32px;
+  padding: 12px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(255, 255, 255);
+  border-image: initial;
+  border-radius: 10px;
+  justify-content: space-between;
+  text-align: end;
+}
+.mint-price-img {
+  width: 82px;
+  height: 82px;
+  border-radius: 10px;
+}
+.mint-price-field h3 {
+  margin-bottom: 0px;
+}
+
+.amount-wrapper {
+  display: flex;
+  box-sizing: border-box;
+  margin-bottom: 32px;
+  align-items: center;
+  padding: 12px;
+  background: rgba(123, 123, 123, 0.41);
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(255, 255, 255);
+  border-image: initial;
+  border-radius: 10px;
+}
+.amount-field {
+  display: flex;
+  align-items: center;
+}
+.amount-field h2 {
+  margin: 10px;
+}
+.minus-btn,
+.plus-btn {
+  position: relative;
+  color: rgb(241, 241, 241);
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.amount-field span {
+  font-size: 22px;
+  margin-left: 13px;
+  margin-right: 13px;
+}
+.set-max-btn {
+  text-align: end;
+  margin: auto 0 auto auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background: #fff;
+  color: #000;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 400;
+  cursor: pointer;
+  -webkit-box-shadow: 0 0 10px 2px #fff;
+  -moz-box-shadow: 0 0 10px 2px #fff;
+  box-shadow: 0 0 10px 2px #fff;
+  -webkit-transition: -webkit-transform 0.25s ease-in-out;
+  transition: -webkit-transform 0.25s ease-in-out;
+  -o-transition: -o-transform 0.25s ease-in-out;
+  -moz-transition: transform 0.25s ease-in-out, -moz-transform 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out,
+    -moz-transform 0.25s ease-in-out, -o-transform 0.25s ease-in-out;
+  font-family: 'Blender Pro', 'Helvetica', sans-serif;
+}
+.total-wrapper {
+  display: flex;
+  height: 65px;
+  margin-bottom: 32px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-top: 1px solid rgb(255, 255, 255);
+  border-bottom: 1px solid rgb(255, 255, 255);
+  justify-content: space-between;
+  align-items: center;
+}
+.total-wrapper p {
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  margin-top: auto;
+  margin-bottom: auto;
+  color: #fff;
+  padding: 0;
+  font-size: 20px;
+}
+.mint-btn {
+  margin: auto 0 auto auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background: #fff;
+  color: #000;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-box-shadow: 0 0 10px 2px #fff;
+  -moz-box-shadow: 0 0 10px 2px #fff;
+  box-shadow: 0 0 10px 2px #fff;
+  -webkit-transition: -webkit-transform 0.25s ease-in-out;
+  transition: -webkit-transform 0.25s ease-in-out;
+  -o-transition: -o-transform 0.25s ease-in-out;
+  -moz-transition: transform 0.25s ease-in-out, -moz-transform 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out,
+    -moz-transform 0.25s ease-in-out, -o-transform 0.25s ease-in-out;
+  font-family: 'Blender Pro', 'Helvetica', sans-serif;
+  font-weight: bold;
+  font-size: 22px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.sold-amount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+}
