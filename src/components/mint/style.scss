@@ -8,7 +8,7 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Blender Pro', 'Helvetica', sans-serif;
+  font-family: "Blender Pro", "Helvetica", sans-serif;
   padding: 32px;
   background: rgb(11 11 8 / 80%);
   border-radius: 10px;
@@ -119,10 +119,7 @@ h2.sale-title {
 .set-max-btn {
   text-align: end;
   margin: auto 0 auto auto;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 5px 20px;
   background: #fff;
   color: #000;
   text-align: center;
@@ -139,7 +136,7 @@ h2.sale-title {
   transition: transform 0.25s ease-in-out;
   transition: transform 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out,
     -moz-transform 0.25s ease-in-out, -o-transform 0.25s ease-in-out;
-  font-family: 'Blender Pro', 'Helvetica', sans-serif;
+  font-family: "Blender Pro", "Helvetica", sans-serif;
 }
 .total-wrapper {
   display: flex;
@@ -163,10 +160,7 @@ h2.sale-title {
 }
 .mint-btn {
   margin: auto 0 auto auto;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 5px 15px 3px;
   background: #fff;
   color: #000;
   text-align: center;
@@ -182,12 +176,16 @@ h2.sale-title {
   transition: transform 0.25s ease-in-out;
   transition: transform 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out,
     -moz-transform 0.25s ease-in-out, -o-transform 0.25s ease-in-out;
-  font-family: 'Blender Pro', 'Helvetica', sans-serif;
+  font-family: "Blender Pro", "Helvetica", sans-serif;
   font-weight: bold;
   font-size: 22px;
   margin-left: auto;
   margin-right: auto;
-  display: block;
+  display: flex;
+  align-items: center;
+}
+.btn-title {
+  margin: 0px 10px;
 }
 .sold-amount {
   display: flex;

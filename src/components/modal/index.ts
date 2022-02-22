@@ -1,2 +1,3 @@
-export * from './baseModal'
-export * from './nftContent'
+export * from "./baseModal";
+export * from "./metamaskModal";
+export * from "./trxModal";

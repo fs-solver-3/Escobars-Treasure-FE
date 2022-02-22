@@ -1,9 +1,9 @@
-#modal {
-  display: block;
+.modal {
   transition: all 0.3s linear;
   &.fade:not(.show) {
     visibility: hidden;
     opacity: 0;
+    display: none;
   }
   &.fade.show {
     visibility: visible;
@@ -37,7 +37,6 @@
   top: 0;
   left: 0;
   z-index: 10000;
-  display: none;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -74,18 +73,19 @@
 // modal content
 .modal-content {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100%; 
-  color: #000;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 12px;
+  margin: 10px;
+  padding: 0px;
+  opacity: 1;
+  visibility: visible;
   pointer-events: auto;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid transparent;
-  outline: 0;
-  background: #111315;
-  border-radius: 25px;
-  padding: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  max-width: 500px;
+  min-width: fit-content;
+  max-height: 100%;
 }
 
 .modal-header {
@@ -95,94 +95,42 @@
   transition: 0.3s ease;
 
   &:hover {
-    opacity: 0.5;    
+    opacity: 0.5;
   }
 }
 
 .modal-body {
-  display: flex;
-  box-sizing: border-box;
-  gap: 20px;
-  text-align: left;
-
-  .nft-image {
-    padding: 7px 0px 4px 7px;
+  padding: 30px;
+  .wallet-image-field {
+    a {
+      text-decoration: none;
+    }
     img {
-      width: 372px;
-    }
-  }
-  .nft-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    color: #fff;
-
-    .nft-awarded {
-      display: flex;
       align-items: center;
-      gap: 10px;
-      color: #9A9FA5;
-
-      span {
-        font-family: Manrope-bold;
-        font-style: normal;
-        font-weight: 800;
-        font-size: 21;
-        line-height: 104%;
-        color: #FEE720;
-      }
+      width: 100px;
     }
-    .nft-title {
-      font-family: Manrope-bold;
-      font-style: normal;
-      font-weight: 800;
-      font-size: 42px;
-      line-height: 104%;
-    }
-    .nft-desc {
-      font-family: DMSans-regular;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 18px;
-      line-height: 23px;
-      width: 80%;
-
-      p {
-        margin-top: 0px;
-        margin-bottom: 10px;
-      }
-    }
-    .inspect-transaction {
-      font-family: DMSans-regular;
-      font-style: normal;
-      font-weight: normal;
-      color: #FFFFFF;
-      font-size: 16px;
-      line-height: 21px;
-      h6 {
-        margin: 0;
-        font-size: 16px;
-        line-height: 30px;
-      }
-      p {
-        margin: 0;
-        opacity: 0.4;
-      }
+    .wallet-title {
+      width: 100%;
+      font-size: 24px;
+      font-weight: 700;
+      margin-top: 0.5em;
+      color: rgb(12, 12, 13);
     }
   }
-}
-
-// Footer (for actions)
-.modal-footer {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 16px;
-  border-top: 0px solid #fff;
-  
-  > * {
-    margin: 0;
+  .wallet-text {
+    width: 100%;
+    font-size: 18px;
+    margin: 0.333em 0px;
+    color: rgb(169, 169, 188);
+  }
+  .view-link {
+    margin-top: 20px;
+  }
+  .view-link a {
+    font-size: 18px;
+    color: rgb(169, 169, 188);
+  }
+  .view-link a:hover {
+    color: rgb(61, 61, 165);
   }
 }
-

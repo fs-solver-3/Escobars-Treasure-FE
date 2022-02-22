@@ -1,57 +1,55 @@
-import React, { useState, useEffect } from 'react'
-import WalletLogo from '../../assets/wallet-logo.png'
-import LogoMP4 from '../../assets/logo.mp4'
-import { useSelector } from 'react-redux'
-import wallet from '../../utils/wallet'
-import { RootState } from '../../utils/types'
+import React, { useState, useEffect } from "react";
+import WalletLogo from "../../assets/wallet-logo.png";
+import LogoMP4 from "../../assets/logo.mp4";
+import { useSelector } from "react-redux";
+import wallet from "../../utils/wallet";
+import { RootState } from "../../utils/types";
 
 interface Props {
   isConnected: boolean;
 }
 
 const Header = (props: Props) => {
-  const { isConnected } = props
-  const [walletAddr, setWalletAddr] = useState('')
+  const { isConnected } = props;
+  const [walletAddr, setWalletAddr] = useState("");
 
-  const userAddress = useSelector<RootState, string>((state) => state.user.userAddress);
+  const userAddress = useSelector<RootState, string>(
+    (state) => state.user.userAddress
+  );
 
   const walletConnect = async () => {
-    await wallet.setProvider('metamask');
-    await wallet.login('metamask');
-  }
-  // const video = useRef<HTMLVideoElement>();
-  // const playVideo = (event: any) => {
-  //   video.current && video.current.play();
-  // };
+    await wallet.setProvider("metamask");
+    await wallet.login("metamask");
+  };
 
   useEffect(() => {
     if (userAddress) {
-      setWalletAddr(userAddress)
+      setWalletAddr(userAddress);
     } else {
-      setWalletAddr('')
+      setWalletAddr("");
     }
-  }, [isConnected, userAddress])
+  }, [isConnected, userAddress]);
 
   return (
     <div className="header">
       <div className="container">
         <div className="header-inner">
-          <div className='logo-video-field'>
+          <div className="logo-video-field">
             {/* <video ref={video} loop src='/src/assets/logo.mp4' /> */}
             <video autoPlay loop muted width="150" height="150">
               <source src={LogoMP4} type="video/mp4" />
             </video>
           </div>
-          <div className="loginBtn" onClick={walletConnect}>
+          {/* <div className="loginBtn" onClick={walletConnect}>
             <img src={WalletLogo} alt="" />
             {userAddress ?
               <span>{walletAddr.replace(userAddress.substring(6, 38), "...")}</span> : <span>Connect</span>
             }
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

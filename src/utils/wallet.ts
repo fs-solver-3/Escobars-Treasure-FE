@@ -7,7 +7,7 @@ import { login, logout } from "../store/actions";
 
 class Wallet {
   web3;
-  walletType = '';
+  walletType = "";
 
   constructor() {
     this.web3 = new Web3(Web3.givenProvider);
@@ -15,9 +15,9 @@ class Wallet {
 
   async setProvider(type: string) {
     let provider;
-    console.log(type)
+    console.log(type);
     switch (type) {
-      case 'metamask':
+      case "metamask":
         provider = await detectEthereumProvider();
 
         const { ethereum } = window;
@@ -30,7 +30,7 @@ class Wallet {
 
         break;
 
-      case 'walletconnect':
+      case "walletconnect":
         provider = new WalletConnectProvider({
           infuraId: getConfig().infuraId,
         });
@@ -49,7 +49,7 @@ class Wallet {
   login = async (type: string) => {
     let accounts;
     switch (type) {
-      case 'metamask':
+      case "metamask":
         //@ts-ignore
         accounts = await this.web3.currentProvider.request({
           method: "eth_requestAccounts",
@@ -63,6 +63,7 @@ class Wallet {
         console.log("chainId ", chainId);
 
         if (accounts.length) {
+          console.log("accounts", accounts);
           const address = accounts[0];
           store.dispatch(login({ address }, chainId));
         } else {
@@ -84,7 +85,7 @@ class Wallet {
               const address = accounts[0];
               store.dispatch(login({ address }, chainId));
             } else {
-              console.log('-------', 'disconnect')
+              console.log("-------", "disconnect");
               this.disconnect();
             }
           }
@@ -92,13 +93,13 @@ class Wallet {
 
         //@ts-ignore
         this.web3.currentProvider.on("chainChanged", () => {
-          console.log('---------', 'chain changed')
+          console.log("---------", "chain changed");
           window.location.reload();
         });
 
         break;
 
-      case 'walletconnect':
+      case "walletconnect":
         //@ts-ignore
         accounts = await this.web3.currentProvider.enable();
 
@@ -149,13 +150,13 @@ class Wallet {
 
   disconnect = async () => {
     switch (this.walletType) {
-      case 'metamask':
+      case "metamask":
         // @ts-ignore
         const res = await this.web3.currentProvider._handleDisconnect();
         store.dispatch(logout());
         break;
 
-      case 'walletconnect':
+      case "walletconnect":
         store.dispatch(logout());
         break;
 

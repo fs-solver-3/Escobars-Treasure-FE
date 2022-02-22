@@ -1,7 +1,13 @@
-export const CONTRACT_ADDRESS = "0x60dCA282aBf7B94397431785ac5f914D69Fc7f3E"
-export const INFURA_KEY="e632a702eec64a4d867d65d8923d4309"
+export const CONTRACT_ADDRESS = "0xC192ABeFef584684BCfd0ed4e890A451ac1Ed0e3";
+export const INFURA_KEY = "e632a702eec64a4d867d65d8923d4309";
 
 export const configNetwork = "rinkeby";
+
+export let trxExplorerBaseUrl = "https://etherscan.io/tx/";
+
+if (configNetwork == "rinkeby") {
+  trxExplorerBaseUrl = "https://rinkeby.etherscan.io/tx/";
+}
 
 export const WalletTypes = {
   default: 0,
