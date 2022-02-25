@@ -21,7 +21,7 @@ const Mint = (props: Props) => {
   const { isConnected } = props;
   const [amount, setAmount] = useState(1);
   const [soldAmount, setSoldAmount] = useState(0);
-  let totalPrice = ((amount * 6) / 100).toFixed(2);
+  let totalPrice = ((amount * 12) / 100).toFixed(2);
   const [showWalletModal, setShowWalletModal] = useState(false);
   const [showTrxModal, setShowTrxModal] = useState(false);
   const [showSpinner, SetShowSpinner] = useState(false);
@@ -34,15 +34,15 @@ const Mint = (props: Props) => {
   );
 
   useEffect(() => {
-    if (getMetaMaskInstalled()) {
-      const fetchData = async () => {
-        const newSoldAmount: any = await getSoldAmount();
-        if (newSoldAmount) {
-          setSoldAmount(newSoldAmount);
-        }
-      };
-      fetchData().catch(console.error);
-    }
+    // if (getMetaMaskInstalled() && userAddress) {
+    const fetchData = async () => {
+      const newSoldAmount: any = await getSoldAmount();
+      if (newSoldAmount) {
+        setSoldAmount(newSoldAmount);
+      }
+    };
+    fetchData().catch(console.error);
+    // }
   }, []);
 
   const walletConnect = async () => {
@@ -106,17 +106,17 @@ const Mint = (props: Props) => {
       <div className="mint-header">
         <div className="limited-date">
           <p className="title"> Limited Mint Date</p>
-          <p className="data"> April 30 - 12PM EST</p>
+          {/* <p className="data"> April 30 - 12PM EST</p> */}
         </div>
         <div className="header_flex">
           <div className="detail-two-sides">
             <div className="text-block-title">Supply</div>
-            <div className="text-block">1000</div>
+            <div className="text-block">10,000</div>
           </div>
           <div className="detail-two-sides">
             <div className="text-block-title">Price</div>
 
-            <div className="text-block">0.06 ETH</div>
+            <div className="text-block">0.12 ETH</div>
           </div>
           <div className="detail-two-sides">
             <div className="text-block-title">Max</div>
@@ -131,7 +131,7 @@ const Mint = (props: Props) => {
           <img className="mint-price-img" src={PriceImage} alt="Price Image" />
           <div className="mint-price-field">
             <p> Price Per NFT</p>
-            <h3> 0.06 ETH Each</h3>
+            <h3> 0.12 ETH Each</h3>
           </div>
         </div>
         <div className="amount-wrapper">
@@ -181,7 +181,7 @@ const Mint = (props: Props) => {
           <p className="btn-title">{isConnected ? "MINT" : "CONNECT"}</p>{" "}
           {showSpinner && <Spinner />}
         </div>
-        <div className="sold-amount">{soldAmount}/1000</div>
+        <div className="sold-amount">{soldAmount}/10,000</div>
       </div>
       <BaseModal show={showWalletModal || showTrxModal} closeModal={closeModal}>
         {showWalletModal && <MetamaskModal />}

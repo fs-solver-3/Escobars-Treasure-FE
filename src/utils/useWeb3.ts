@@ -2,10 +2,13 @@ import Web3 from "web3";
 import { ethers } from "ethers";
 import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
-import contractABI from "./abi.json";
 import { configNetwork, CONTRACT_ADDRESS, INFURA_KEY } from "./constants";
 import store from "../store/reducers";
 import { login, logout } from "../store/actions";
+import MEWconnect from "@myetherwallet/mewconnect-web-client";
+
+const contractABI = require("./abi.json");
+const ETCcontractABI = require("./contract-abi.json");
 
 let contract: any;
 
@@ -13,16 +16,16 @@ const providerOptions = {
   walletconnect: {
     package: WalletConnectProvider,
     options: {
-      infuraId: INFURA_KEY,
-    },
-  },
+      infuraId: INFURA_KEY
+    }
+  }
 };
 
 const web3modal = new Web3Modal({
   network: configNetwork,
   cacheProvider: false, // optional
   providerOptions, // required
-  disableInjectedProvider: false, // optional. For MetaMask / Brave / Opera.
+  disableInjectedProvider: false // optional. For MetaMask / Brave / Opera.
 });
 
 /** @return connecting to web3 via modal */
@@ -66,7 +69,7 @@ async function connectMetamask() {
   try {
     // @ts-ignore
     const accounts = await window.ethereum.request({
-      method: "eth_requestAccounts",
+      method: "eth_requestAccounts"
     });
     return accounts[0];
   } catch (err) {
@@ -135,7 +138,7 @@ const mintNFT = async (
         .send({
           from: address,
           value: mintWei,
-          gasLimit: 200000,
+          gasLimit: 200000
         });
       console.log("transaction", transaction);
       return transaction;
@@ -149,11 +152,25 @@ const mintNFT = async (
 const getSoldAmount = async () => {
   if (typeof contract === "undefined") {
     // @ts-ignore
-    window.web3 = new Web3(window.ethereum);
-    const contract = await new window.web3.eth.Contract(
-      contractABI,
-      CONTRACT_ADDRESS
-    );
+    // var web3 = new Web3(Web3.givenProvider);
+    var web3;
+    if (typeof window !== "undefined" && typeof window.web3 !== "undefined") {
+      // We are in the browser and metamask is running.
+      web3 = new Web3(window.web3.currentProvider);
+    } else {
+      // We are on the server *OR* the user is not running metamask
+      const ETH_JSONRPC_URL = "wss://rinkeby-light.eth.linkpool.io/ws";
+      const CHAIN_ID = 1;
+      const mewConnect = new MEWconnect.Provider();
+      const provider = mewConnect.makeWeb3Provider(
+        CHAIN_ID,
+        ETH_JSONRPC_URL,
+        true
+      );
+      web3 = new Web3(provider);
+      console.log("web3", web3);
+    }
+    const contract = new web3.eth.Contract(contractABI, CONTRACT_ADDRESS);
     try {
       const soldAmount: Number = await contract.methods.getLastTokenId().call();
       return soldAmount;
@@ -172,7 +189,7 @@ async function purchaseToad(numBought: number, totalAmount: number) {
   const price = ethers.utils.parseUnits(`${totalAmount}`, "ether");
 
   let transaction = await contract.mintToad(numBought, {
-    value: price,
+    value: price
   });
 
   return transaction;
@@ -188,5 +205,5 @@ export {
   hasSaleStarted,
   loadContract,
   mintNFT,
-  getSoldAmount,
+  getSoldAmount
 };

@@ -25,15 +25,24 @@ interface Props {
 
 const Slideshow = (props: Props) => {
   const { isConnected } = props;
+  const [width, setWidth] = useState(0);
+  useEffect(() => {
+    function handleResize() {
+      setWidth(window.innerWidth);
+    }
 
-  const connectWallet = async () => {
-    await wallet.setProvider("metamask");
-    await wallet.login("metamask");
-  };
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [setWidth]);
 
   const carousel = useRef();
 
-  const settings = {
+  const settingsVertical = {
     infinite: true,
     autoplay: true,
     autoplaySpeed: 0,
@@ -44,38 +53,80 @@ const Slideshow = (props: Props) => {
     // lazyLoad: true,
     arrows: false,
     dots: false,
-    vertical: true,
+    vertical: true
+  };
+  const settingsHorizontal = {
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 0,
+    speed: 3000,
+    cssEase: "linear",
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    // lazyLoad: true,
+    arrows: false,
+    dots: false,
+    vertical: false
   };
   return (
     <div className="slider-wrapper">
       <div className="slider-content">
-        <Slider {...settings} ref={carousel}>
-          <img src={Slide1} alt="Slide 1" />
-          <img src={Slide2} alt="Slide 2" />
-          <img src={Slide3} alt="Slide 3" />
-          <img src={Slide4} alt="Slide 4" />
-          <img src={Slide5} alt="Slide 5" />
-          <img src={Slide6} alt="Slide 6" />
-          <img src={Slide7} alt="Slide 7" />
-          <img src={Slide8} alt="Slide 8" />
-          <img src={Slide9} alt="Slide 9" />
-          <img src={Slide10} alt="Slide 10" />
-          <img src={Slide11} alt="Slide 11" />
-          <img src={Slide12} alt="Slide 12" />
-          <img src={Slide1} alt="Slide 1" />
-          <img src={Slide2} alt="Slide 2" />
-          <img src={Slide3} alt="Slide 3" />
-          <img src={Slide4} alt="Slide 4" />
-          <img src={Slide5} alt="Slide 5" />
-          <img src={Slide6} alt="Slide 6" />
-          <img src={Slide7} alt="Slide 7" />
-          <img src={Slide8} alt="Slide 8" />
-          <img src={Slide9} alt="Slide 9" />
-          <img src={Slide10} alt="Slide 10" />
-          <img src={Slide11} alt="Slide 11" />
-          <img src={Slide12} alt="Slide 12" />
-        </Slider>
-        );
+        {width > 890 && (
+          <Slider {...settingsVertical} ref={carousel}>
+            <img src={Slide1} alt="Slide 1" />
+            <img src={Slide2} alt="Slide 2" />
+            <img src={Slide3} alt="Slide 3" />
+            <img src={Slide4} alt="Slide 4" />
+            <img src={Slide5} alt="Slide 5" />
+            <img src={Slide6} alt="Slide 6" />
+            <img src={Slide7} alt="Slide 7" />
+            <img src={Slide8} alt="Slide 8" />
+            <img src={Slide9} alt="Slide 9" />
+            <img src={Slide10} alt="Slide 10" />
+            <img src={Slide11} alt="Slide 11" />
+            <img src={Slide12} alt="Slide 12" />
+            <img src={Slide1} alt="Slide 1" />
+            <img src={Slide2} alt="Slide 2" />
+            <img src={Slide3} alt="Slide 3" />
+            <img src={Slide4} alt="Slide 4" />
+            <img src={Slide5} alt="Slide 5" />
+            <img src={Slide6} alt="Slide 6" />
+            <img src={Slide7} alt="Slide 7" />
+            <img src={Slide8} alt="Slide 8" />
+            <img src={Slide9} alt="Slide 9" />
+            <img src={Slide10} alt="Slide 10" />
+            <img src={Slide11} alt="Slide 11" />
+            <img src={Slide12} alt="Slide 12" />
+          </Slider>
+        )}
+        {width <= 890 && (
+          <Slider {...settingsHorizontal} ref={carousel}>
+            <img src={Slide1} alt="Slide 1" />
+            <img src={Slide2} alt="Slide 2" />
+            <img src={Slide3} alt="Slide 3" />
+            <img src={Slide4} alt="Slide 4" />
+            <img src={Slide5} alt="Slide 5" />
+            <img src={Slide6} alt="Slide 6" />
+            <img src={Slide7} alt="Slide 7" />
+            <img src={Slide8} alt="Slide 8" />
+            <img src={Slide9} alt="Slide 9" />
+            <img src={Slide10} alt="Slide 10" />
+            <img src={Slide11} alt="Slide 11" />
+            <img src={Slide12} alt="Slide 12" />
+            <img src={Slide1} alt="Slide 1" />
+            <img src={Slide2} alt="Slide 2" />
+            <img src={Slide3} alt="Slide 3" />
+            <img src={Slide4} alt="Slide 4" />
+            <img src={Slide5} alt="Slide 5" />
+            <img src={Slide6} alt="Slide 6" />
+            <img src={Slide7} alt="Slide 7" />
+            <img src={Slide8} alt="Slide 8" />
+            <img src={Slide9} alt="Slide 9" />
+            <img src={Slide10} alt="Slide 10" />
+            <img src={Slide11} alt="Slide 11" />
+            <img src={Slide12} alt="Slide 12" />
+          </Slider>
+        )}
       </div>
     </div>
   );

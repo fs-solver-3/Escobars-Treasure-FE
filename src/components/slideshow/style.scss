@@ -1,12 +1,12 @@
-// .slider-wrapper {
-//   position: absolute;
-//   top: 0;
-//   left: 300px;
-// }
 .slider-content {
   width: 300px;
 }
 .slick-vertical .slick-slide {
   border: none;
   margin-bottom: -3px;
+}
+@media (max-width: 890px) {
+  .slider-content {
+    width: 100vw;
+  }
 }

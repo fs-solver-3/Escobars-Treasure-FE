@@ -12,7 +12,9 @@ h3 {
   padding: 32px;
   background: rgb(11 11 8 / 80%);
   border-radius: 10px;
-  margin-top: 30px;
+  margin-top: 75px;
+  width: calc(100% - 380px);
+  max-width: 520px;
 }
 .mint-header {
   text-align: center;
@@ -28,7 +30,6 @@ h3 {
   grid-gap: 30px;
   margin-top: 25px;
   margin-bottom: 25px;
-  width: 524px;
   justify-content: space-between;
 }
 .detail-two-sides {
@@ -51,11 +52,11 @@ h3 {
 h2.sale-title {
   opacity: 1;
   color: rgb(252, 252, 253);
-  line-height: 51px;
+  line-height: 34px;
   font-weight: 900;
   text-align: center;
   text-transform: uppercase;
-  font-size: 51px;
+  font-size: 45px;
   letter-spacing: 1px;
 }
 .mint-price-wrapper {
@@ -192,4 +193,19 @@ h2.sale-title {
   align-items: center;
   justify-content: center;
   margin-top: 8px;
+}
+@media (max-width: 890px) {
+  .mint-wrapper {
+    width: 70%;
+    margin: 30px auto 30px;
+  }
+}
+@media (max-width: 480px) {
+  .mint-wrapper {
+    width: 90%;
+    padding: 32px 12px;
+  }
+  h2.sale-title {
+    font-size: 35px;
+  }
 }
