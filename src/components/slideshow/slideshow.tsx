@@ -1,5 +1,4 @@
-import React, { createRef, useRef, useState, useEffect } from "react";
-import wallet from "../../utils/wallet";
+import React, { useRef, useState, useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -24,7 +23,6 @@ interface Props {
 }
 
 const Slideshow = (props: Props) => {
-  const { isConnected } = props;
   const [width, setWidth] = useState(0);
   useEffect(() => {
     function handleResize() {
@@ -48,7 +46,7 @@ const Slideshow = (props: Props) => {
     autoplaySpeed: 0,
     speed: 3000,
     cssEase: "linear",
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 1,
     // lazyLoad: true,
     arrows: false,
@@ -61,7 +59,7 @@ const Slideshow = (props: Props) => {
     autoplaySpeed: 0,
     speed: 3000,
     cssEase: "linear",
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 1,
     // lazyLoad: true,
     arrows: false,

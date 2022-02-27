@@ -4,11 +4,11 @@ import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import { configNetwork, CONTRACT_ADDRESS, INFURA_KEY } from "./constants";
 import store from "../store/reducers";
-import { login, logout } from "../store/actions";
+import { login } from "../store/actions";
 import MEWconnect from "@myetherwallet/mewconnect-web-client";
 
 const contractABI = require("./abi.json");
-const ETCcontractABI = require("./contract-abi.json");
+// const ETCcontractABI = require("./contract-abi.json");
 
 let contract: any;
 
@@ -160,6 +160,8 @@ const getSoldAmount = async () => {
     } else {
       // We are on the server *OR* the user is not running metamask
       const ETH_JSONRPC_URL = "wss://rinkeby-light.eth.linkpool.io/ws";
+      // const ETH_JSONRPC_URL = "wss://main-light.eth.linkpool.io/ws";
+      // const ETH_JSONRPC_URL = "wss://main-rpc.linkpool.io/ws";
       const CHAIN_ID = 1;
       const mewConnect = new MEWconnect.Provider();
       const provider = mewConnect.makeWeb3Provider(
@@ -167,12 +169,16 @@ const getSoldAmount = async () => {
         ETH_JSONRPC_URL,
         true
       );
+      // const provider = new Web3.providers.HttpProvider(
+      //   "https://mainnet.infura.io/15c4175c70104ee490eb888b2b7ea225"
+      // );
       web3 = new Web3(provider);
       console.log("web3", web3);
     }
     const contract = new web3.eth.Contract(contractABI, CONTRACT_ADDRESS);
     try {
       const soldAmount: Number = await contract.methods.getLastTokenId().call();
+      console.log("soldAmount", soldAmount);
       return soldAmount;
     } catch (err) {
       console.log(err);

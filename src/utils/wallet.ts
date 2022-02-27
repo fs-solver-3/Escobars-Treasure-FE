@@ -152,7 +152,7 @@ class Wallet {
     switch (this.walletType) {
       case "metamask":
         // @ts-ignore
-        const res = await this.web3.currentProvider._handleDisconnect();
+        // const res = await this.web3.currentProvider._handleDisconnect();
         store.dispatch(logout());
         break;
 

@@ -23,13 +23,14 @@ h3 {
   color: #fff;
   font-weight: 700;
   font-size: 22px;
+  margin-top: 0px;
 }
 .header_flex {
   display: grid;
   grid-template-columns: repeat(3, auto);
   grid-gap: 30px;
   margin-top: 25px;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   justify-content: space-between;
 }
 .detail-two-sides {
@@ -52,7 +53,7 @@ h3 {
 h2.sale-title {
   opacity: 1;
   color: rgb(252, 252, 253);
-  line-height: 34px;
+  line-height: 0px;
   font-weight: 900;
   text-align: center;
   text-transform: uppercase;
@@ -62,8 +63,8 @@ h2.sale-title {
 .mint-price-wrapper {
   display: flex;
   margin-top: 20px;
-  margin-bottom: 32px;
-  padding: 12px;
+  margin-bottom: 20px;
+  padding: 6px 12px;
   border-width: 1px;
   border-style: solid;
   border-color: rgb(255, 255, 255);
@@ -84,9 +85,9 @@ h2.sale-title {
 .amount-wrapper {
   display: flex;
   box-sizing: border-box;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
   align-items: center;
-  padding: 12px;
+  padding: 6px 12px;
   background: rgba(123, 123, 123, 0.41);
   border-width: 1px;
   border-style: solid;
@@ -141,7 +142,7 @@ h2.sale-title {
 }
 .total-wrapper {
   display: flex;
-  height: 65px;
+  height: 55px;
   margin-bottom: 32px;
   padding-left: 10px;
   padding-right: 10px;

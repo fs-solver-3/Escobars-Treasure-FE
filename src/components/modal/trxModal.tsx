@@ -15,7 +15,11 @@ export const TrxModal = (props: Props) => {
       <div className="wallet-text">{modalSubtitle}</div>
       {trxHash && (
         <div className="view-link">
-          <a href={trxExplorerBaseUrl + trxHash} target="_blank">
+          <a
+            href={trxExplorerBaseUrl + trxHash}
+            target="_blank"
+            rel="noreferrer"
+          >
             View transaction
           </a>
         </div>

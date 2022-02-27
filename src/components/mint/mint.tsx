@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import PriceImage from "../../assets/mintshow.gif";
-import wallet from "../../utils/wallet";
+// import wallet from "../../utils/wallet";
 import { connectWeb3, getMetaMaskInstalled } from "../../utils/useWeb3";
 import BaseModal from "../modal/baseModal";
 import { MetamaskModal } from "../modal/metamaskModal";
@@ -21,7 +21,7 @@ const Mint = (props: Props) => {
   const { isConnected } = props;
   const [amount, setAmount] = useState(1);
   const [soldAmount, setSoldAmount] = useState(0);
-  let totalPrice = ((amount * 12) / 100).toFixed(2);
+  let totalPrice = ((amount * 6) / 100).toFixed(2);
   const [showWalletModal, setShowWalletModal] = useState(false);
   const [showTrxModal, setShowTrxModal] = useState(false);
   const [showSpinner, SetShowSpinner] = useState(false);
@@ -45,10 +45,10 @@ const Mint = (props: Props) => {
     // }
   }, []);
 
-  const walletConnect = async () => {
-    await wallet.setProvider("metamask");
-    await wallet.login("metamask");
-  };
+  // const walletConnect = async () => {
+  //   await wallet.setProvider("metamask");
+  //   await wallet.login("metamask");
+  // };
   const increaseHandle = () => {
     console.log("Plus Click");
     if (amount < 10) setAmount(amount + 1);
@@ -76,7 +76,7 @@ const Mint = (props: Props) => {
           SetShowSpinner(false);
           setModalTitle("Transaction Success!");
           setModalSubtitle(
-            amount == 1 ? "1 NFT is minted" : amount + "NFTs are minted!"
+            amount === 1 ? "1 NFT is minted" : amount + "NFTs are minted!"
           );
           setTrxHash(trx.transactionHash);
           setShowTrxModal(true);
@@ -116,7 +116,7 @@ const Mint = (props: Props) => {
           <div className="detail-two-sides">
             <div className="text-block-title">Price</div>
 
-            <div className="text-block">0.12 ETH</div>
+            <div className="text-block">0.06 ETH</div>
           </div>
           <div className="detail-two-sides">
             <div className="text-block-title">Max</div>
@@ -128,10 +128,10 @@ const Mint = (props: Props) => {
       <div className="mint-content">
         <h2 className="sale-title"> LIMITED SALE</h2>
         <div className="mint-price-wrapper">
-          <img className="mint-price-img" src={PriceImage} alt="Price Image" />
+          <img className="mint-price-img" src={PriceImage} alt="Price Icon" />
           <div className="mint-price-field">
             <p> Price Per NFT</p>
-            <h3> 0.12 ETH Each</h3>
+            <h3> 0.06 ETH Each</h3>
           </div>
         </div>
         <div className="amount-wrapper">

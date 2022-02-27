@@ -1,22 +1,22 @@
 import {
   LOGIN_SUCCESS,
-  LOGOUT_SUCCESS,
+  LOGOUT_SUCCESS
   // GET_ETH_BALANCE_SUCCESS,
 } from "./constant";
-import web3 from "web3";
-import wallet from "../../utils/wallet";
+// import web3 from "web3";
+// import wallet from "../../utils/wallet";
 
 export const login = (user: any, network: number) => {
   return {
     type: LOGIN_SUCCESS,
     address: user.address,
-    network,
+    network
   };
 };
 
 export const logout = () => {
   return {
-    type: LOGOUT_SUCCESS,
+    type: LOGOUT_SUCCESS
   };
 };
 
@@ -36,4 +36,3 @@ export const logout = () => {
 //     console.log("error in get eth balance ", e);
 //   }
 // };
-

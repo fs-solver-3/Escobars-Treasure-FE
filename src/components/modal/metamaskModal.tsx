@@ -5,8 +5,12 @@ export const MetamaskModal = () => {
   return (
     <div className="modal-body">
       <div className="wallet-image-field">
-        <a href="https://metamask.io/download.html" target="_blank">
-          <img src={MetamaskImg} alt="Metamask Image" />
+        <a
+          href="https://metamask.io/download.html"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img src={MetamaskImg} alt="Metamask Icon" />
           <p className="wallet-title">MetaMask</p>
         </a>
       </div>
